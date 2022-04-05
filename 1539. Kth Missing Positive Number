@@ -1,0 +1,17 @@
+//Binary Search
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int l=0;
+        int cnt=1;
+        while(k!=0){
+            if(l<arr.size() and arr[l]==cnt)
+                l++;
+            else
+                k--;
+            cnt++;
+        }
+        return cnt-1;
+    }
+};
