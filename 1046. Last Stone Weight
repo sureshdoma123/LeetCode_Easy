@@ -1,0 +1,19 @@
+//Cpp-Language
+
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        sort(stones.begin(),stones.end());
+        while(stones.size()>1)
+        {
+            int i=stones.size()-1;
+            int a=stones[i],b=stones[i-1];
+            stones.pop_back();
+            stones.pop_back();
+            if(a!=b)stones.emplace_back(a-b);
+            sort(stones.begin(),stones.end());
+        }
+        if(stones.size()) return stones[0];
+        return 0;
+    }
+};
